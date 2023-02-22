@@ -8,6 +8,6 @@ function getClock() {
   clock.innerText = `${hours}:${minutes}:${seconds}`;
 }
 
-// padStart , padEnd
+// padStart , padEnd는 문자열에서만 쓸 수 있음 (원하는 만큼의 길이, 아닐때 앞 뒤로 끼워넣을 문자)
 getClock(); // 시계 즉시 호출
 setInterval(getClock, 1000); // 1초마다 시계 호출 = 시계
