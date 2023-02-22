@@ -33,7 +33,7 @@ function handleToDoSubmit(event) {
   toDoInput.value = "";
   const newTodoObj = {
     text: newTodo,
-    id: Date.now(),
+    id: Date.now(), //id 값 부여 신기하다..
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
@@ -46,5 +46,11 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 if (savedTodos) {
   const parsedToDos = JSON.parse(savedTodos); //문자열을 배열로 만들어주기
   toDos = parsedToDos;
-  parsedToDos.forEach(paintToDo);
+  parsedToDos.forEach(paintToDo); //forEach 배워두기
 }
+
+function sexyFilter() {
+  return true;
+}
+
+[1, 2, 3, 4].filter(sexyFilter);
