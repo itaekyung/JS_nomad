@@ -1,7 +1,7 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input"); // 꼭 다큐먼트 일 필요없다.
 const toDOList = document.getElementById("todo-list");
-const toDos = [];
+let toDos = [];
 const TODOS_KEY = "todos";
 
 function saveToDos() {
@@ -37,12 +37,9 @@ function handleToDoSubmit(event) {
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
-function sayHello(item) {
-  console.log("hello");
-}
-
 const savedTodos = localStorage.getItem(TODOS_KEY);
 if (savedTodos) {
   const parsedToDos = JSON.parse(savedTodos); //문자열을 배열로 만들어주기
-  parsedToDos.forEach((item) => console.log("this is the turn of", item));
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
 }
