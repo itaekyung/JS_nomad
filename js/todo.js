@@ -10,7 +10,9 @@ function saveToDos() {
 
 function delteTodo(event) {
   const li = event.target.parentElement; //삭제하고 싶은 li 특정하기 #알아두자#
+  toDos = toDos.filter((todo) => todo.id !== parseInt(li.id));
   li.remove();
+  saveToDos();
 }
 
 function paintToDo(newTodo) {
@@ -48,9 +50,3 @@ if (savedTodos) {
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo); //forEach 배워두기
 }
-
-function sexyFilter() {
-  return true;
-}
-
-[1, 2, 3, 4].filter(sexyFilter);
